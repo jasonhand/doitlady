@@ -1,4 +1,4 @@
-# Dot Matrix Quote Printer Web App
+# The internet's favorite new sketch comedy character Chit
 
 This is a playful web app that emulates a classic dot-matrix printer experience, complete with animated paper feed, punch holes, and a retro ASCII-art image. Each time you click the button, the paper scrolls up as if printing a new line, and a random motivational quote appears to the right.
 
