@@ -11,7 +11,6 @@ const quotes = [
     "Is there a black purse in here?",
     "Any more questions?",
     "Let's crunch some numbers",
-    "lfkadsf;lkjasdf;lj",
     "Pulled some strings and got'em a job in IT",
     "He is a firecracker",
     "Over the shoulder",

@@ -249,6 +249,20 @@ main {
     text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
 }
 
+.dot-matrix-link {
+    color: #333;
+    text-decoration: underline;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: color 0.2s ease;
+}
+
+.dot-matrix-link:hover {
+    color: #ff69b4;
+    text-decoration: underline;
+}
+
 .quote-section {
     display: flex;
     flex-direction: column;
