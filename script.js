@@ -1,6 +1,8 @@
 // Array of quotes
 const quotes = [
     "Do it lady!",
+    "All of it",
+    "All the time",
     "Yeah, Yeah",
     "Back to it then",
     "Casual Friday",
@@ -9,45 +11,209 @@ const quotes = [
     "Is there a black purse in here?",
     "Any more questions?",
     "Let's crunch some numbers",
-    "lfkadsf;lkjasdf;ljasdf;lk"
+    "lfkadsf;lkjasdf;lj",
+    "Pulled some strings and got'em a job in IT",
+    "He is a firecracker",
+    "Over the shoulder",
+    "Success",
+    "Got'er"
 ];
 
 let shownQuotes = [];
-let datadogTimeout = null;
 
 // Get DOM elements
 const quoteText = document.getElementById('quote-text');
 const newQuoteBtn = document.getElementById('new-quote-btn');
 const asciiArtContainer = document.querySelector('.ascii-art-container');
-let paperOffset = 0;
-let PAPER_LINE_HEIGHT = 32; // px per line feed (will be recalculated)
+const paperContent = document.querySelector('.paper-content');
+const datadogLink = document.querySelector('.datadog-link');
+const mainImageGroup = document.getElementById('main-image-group');
+const mainAsciiArt = document.getElementById('main-ascii-art');
 
-function calculateInitialOffset() {
-    const container = asciiArtContainer;
-    if (!container) return 0;
-    return container.clientHeight;
+// Printer state
+let paperOffset = 0;
+let containerOffset = 300; // Container starts even closer to printer base
+let PAPER_LINE_HEIGHT = 65; // px per line feed - realistic dot matrix speed
+let containerHeight = 0;
+let currentContentHeight = 11000; // Track current content height
+let nextGroupId = 9; // Next image group to create
+
+function initializePrinter() {
+    if (!asciiArtContainer || !paperContent) return;
+    
+    containerHeight = asciiArtContainer.clientHeight;
+    
+    // Start with container and paper hidden
+    paperOffset = 0;
+    containerOffset = 300; // Container starts even closer to printer base
+    setContainerOffset(containerOffset);
+    setPaperOffset(paperOffset);
 }
 
-function calculateLineHeight() {
-    const container = asciiArtContainer;
-    if (!container) return 0;
-    return container.clientHeight / quotes.length;
+function setContainerOffset(offset) {
+    if (asciiArtContainer) {
+        asciiArtContainer.style.setProperty('--container-offset', `${offset}px`);
+    }
 }
 
 function setPaperOffset(offset) {
-    asciiArtContainer.style.setProperty('--paper-offset', offset + 'px');
+    if (paperContent) {
+        paperContent.style.setProperty('--paper-offset', `${-offset}px`);
+    }
 }
 
-function resetPaperOffset() {
-    // Recalculate line height and initial offset
-    PAPER_LINE_HEIGHT = calculateLineHeight();
-    paperOffset = calculateInitialOffset();
-    setPaperOffset(paperOffset);
+function createImageGroup(groupId, topPosition) {
+    const imageGroup = document.createElement('div');
+    imageGroup.className = 'paper-image-group';
+    imageGroup.id = `repeat-image-group-${groupId}`;
+    imageGroup.style.position = 'absolute';
+    imageGroup.style.width = '800px';
+    imageGroup.style.height = '1100px';
+    imageGroup.style.top = `${topPosition}px`;
+    imageGroup.style.left = '0';
+    
+    // Create holes
+    const holesLeft = document.createElement('div');
+    holesLeft.className = 'holes holes-left';
+    const holesRight = document.createElement('div');
+    holesRight.className = 'holes holes-right';
+    
+    for (let i = 0; i < 20; i++) {
+        const holeLeft = document.createElement('div');
+        holeLeft.className = 'hole';
+        holesLeft.appendChild(holeLeft);
+        
+        const holeRight = document.createElement('div');
+        holeRight.className = 'hole';
+        holesRight.appendChild(holeRight);
+    }
+    
+    // Create ASCII art image
+    const img = document.createElement('img');
+    img.src = 'ascii-art.png';
+    img.alt = 'ASCII Art';
+    img.className = 'ascii-art';
+    img.id = `repeat-ascii-art-${groupId}`;
+    img.style.position = 'absolute';
+    img.style.left = '0';
+    img.style.width = '800px';
+    img.style.height = '1100px';
+    img.style.display = 'block';
+    img.style.zIndex = '1';
+    img.style.top = '0';
+    img.style.objectFit = 'cover';
+    
+    imageGroup.appendChild(holesLeft);
+    imageGroup.appendChild(holesRight);
+    imageGroup.appendChild(img);
+    
+    return imageGroup;
+}
+
+function createTextSection(topPosition) {
+    const textSection = document.createElement('div');
+    textSection.className = 'paper-text-section';
+    textSection.style.position = 'absolute';
+    textSection.style.width = '800px';
+    textSection.style.height = '1100px';
+    textSection.style.top = `${topPosition}px`;
+    textSection.style.left = '0';
+    textSection.style.background = 'white';
+    textSection.style.display = 'flex';
+    textSection.style.alignItems = 'center';
+    textSection.style.justifyContent = 'center';
+    
+    // Create holes
+    const holesLeft = document.createElement('div');
+    holesLeft.className = 'holes holes-left';
+    const holesRight = document.createElement('div');
+    holesRight.className = 'holes holes-right';
+    
+    for (let i = 0; i < 20; i++) {
+        const holeLeft = document.createElement('div');
+        holeLeft.className = 'hole';
+        holesLeft.appendChild(holeLeft);
+        
+        const holeRight = document.createElement('div');
+        holeRight.className = 'hole';
+        holesRight.appendChild(holeRight);
+    }
+    
+    // Create text content
+    const textDiv = document.createElement('div');
+    textDiv.className = 'dot-matrix-text';
+    textDiv.innerHTML = `
+        <p>Brought to you w/ &lt;3 from j:hand</p>
+        <p>=====================================</p>
+        <p>* Pink Pony Club Dot Matrix Printer *</p>
+        <p>=====================================</p>
+        <p>Thank you for printing with us!</p>
+    `;
+    
+    textSection.appendChild(holesLeft);
+    textSection.appendChild(holesRight);
+    textSection.appendChild(textDiv);
+    
+    return textSection;
+}
+
+function extendContent() {
+    if (!paperContent) return;
+    
+    // Add 5 more image groups
+    for (let i = 0; i < 5; i++) {
+        const imageGroup = createImageGroup(nextGroupId, currentContentHeight);
+        paperContent.appendChild(imageGroup);
+        currentContentHeight += 1100;
+        nextGroupId++;
+    }
+    
+    // Add text section
+    const textSection = createTextSection(currentContentHeight);
+    paperContent.appendChild(textSection);
+    currentContentHeight += 1100;
+    
+    // Update paper content height
+    paperContent.style.height = `${currentContentHeight}px`;
 }
 
 function advancePaper() {
-    paperOffset -= PAPER_LINE_HEIGHT;
+    // Move container up to reveal it from bottom (first clicks bring it into view)
+    if (containerOffset > 0) {
+        containerOffset = Math.max(0, containerOffset - PAPER_LINE_HEIGHT);
+        setContainerOffset(containerOffset);
+    } else {
+        // Once container is fully visible, advance the paper content
+        paperOffset += PAPER_LINE_HEIGHT;
+        
+        // Check if we need to add more content (when we're within 3000px of the end)
+        if (paperOffset > currentContentHeight - 3000) {
+            extendContent();
+        }
+        
+        setPaperOffset(paperOffset);
+    }
+    
+    updateDatadogLinkVisibility();
+}
+
+function resetPrinter() {
+    paperOffset = 0;
+    containerOffset = 300;
+    setContainerOffset(containerOffset);
     setPaperOffset(paperOffset);
+    updateDatadogLinkVisibility();
+}
+
+function updateDatadogLinkVisibility() {
+    if (!datadogLink) return;
+    // Show link when paper has scrolled up enough (about 60% of container height)
+    const scrollThreshold = containerHeight * 0.6;
+    if (paperOffset >= scrollThreshold) {
+        datadogLink.classList.add('visible');
+    } else {
+        datadogLink.classList.remove('visible');
+    }
 }
 
 // Function to get a random quote
@@ -61,60 +227,22 @@ function getRandomQuote() {
 
 // Function to display a new quote
 function displayNewQuote() {
-    // If all quotes have been shown, change button to Datadog and set quote
-    if (shownQuotes.length === quotes.length) {
-        quoteText.textContent = "Let's monitor";
-        newQuoteBtn.textContent = 'Try Datadog';
-        newQuoteBtn.onclick = () => {
-            if (datadogTimeout) clearTimeout(datadogTimeout);
-            window.open('https://app.datadoghq.com', '_blank');
-            window.location.reload();
-        };
-        // Start 5s timeout to revert
-        if (datadogTimeout) clearTimeout(datadogTimeout);
-        datadogTimeout = setTimeout(() => {
-            shownQuotes = [];
-            newQuoteBtn.textContent = 'Yeah?';
-            newQuoteBtn.onclick = displayNewQuote;
-            resetPaperOffset();
-            displayNewQuote();
-        }, 5000);
+    const quote = getRandomQuote();
+    if (!quote) {
+        // If all quotes have been shown, reset just the quotes (keep paper scrolling)
+        shownQuotes = [];
+        displayNewQuote();
         return;
     }
-    if (datadogTimeout) clearTimeout(datadogTimeout);
-    const quote = getRandomQuote();
-    if (!quote) return;
-    quoteText.textContent = quote;
-    
+    quoteText.textContent = `“${quote}”`;
     // Add a subtle animation effect
     quoteText.style.opacity = '0';
     setTimeout(() => {
-        quoteText.textContent = quote;
+        quoteText.textContent = `“${quote}”`;
         quoteText.style.opacity = '1';
     }, 150);
     shownQuotes.push(quote);
     advancePaper();
-    // If this was the last quote, update button and quote
-    if (shownQuotes.length === quotes.length) {
-        setTimeout(() => {
-            quoteText.textContent = "Let's monitor";
-            newQuoteBtn.textContent = 'Try Datadog';
-            newQuoteBtn.onclick = () => {
-                if (datadogTimeout) clearTimeout(datadogTimeout);
-                window.open('https://app.datadoghq.com', '_blank');
-                window.location.reload();
-            };
-            // Start 5s timeout to revert
-            if (datadogTimeout) clearTimeout(datadogTimeout);
-            datadogTimeout = setTimeout(() => {
-                shownQuotes = [];
-                newQuoteBtn.textContent = 'Yeah?';
-                newQuoteBtn.onclick = displayNewQuote;
-                resetPaperOffset();
-                displayNewQuote();
-            }, 5000);
-        }, 200); // after fade in
-    }
 }
 
 // Event listener for the button
@@ -123,16 +251,25 @@ newQuoteBtn.addEventListener('click', displayNewQuote);
 // Display initial quote when page loads
 document.addEventListener('DOMContentLoaded', () => {
     shownQuotes = [];
-    newQuoteBtn.textContent = 'Yeah?';
-    newQuoteBtn.onclick = null;
-    // Wait for layout
+    newQuoteBtn.textContent = 'Yeah';
+    newQuoteBtn.disabled = false;
+    
+    // Initialize the printer
     setTimeout(() => {
-        resetPaperOffset();
+        initializePrinter();
         displayNewQuote();
-    }, 50);
+    }, 100);
+    
+    // Also recalc on image load
+    if (mainAsciiArt) {
+        mainAsciiArt.onload = () => {
+            initializePrinter();
+        };
+    }
 });
 
 // Recalculate on window resize
 window.addEventListener('resize', () => {
-    resetPaperOffset();
+    initializePrinter();
+    updateDatadogLinkVisibility();
 }); 

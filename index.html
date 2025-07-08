@@ -4,26 +4,149 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <script>
+        (function(h,o,u,n,d) {
+          h=h[d]=h[d]||{q:[],onReady:function(c){h.q.push(c)}}
+          d=o.createElement(u);d.async=1;d.src=n
+          n=o.getElementsByTagName(u)[0];n.parentNode.insertBefore(d,n)
+        })(window,document,'script','https://www.datadoghq-browser-agent.com/us1/v6/datadog-rum.js','DD_RUM')
+        window.DD_RUM.onReady(function() {
+          window.DD_RUM.init({
+            clientToken: 'pubffa506a0cc0e2fc4ad0022fcaf072d05',
+            applicationId: 'b56bfd9b-1ab7-439a-87fd-e39138ad4f61',
+            // `site` refers to the Datadog site parameter of your organization
+            // see https://docs.datadoghq.com/getting_started/site/
+            site: 'datadoghq.com',
+            service: 'do-it-lady',
+            env: 'prod',
+            // Specify a version number to identify the deployed version of your application in Datadog
+            // version: '1.0.0',
+            sessionSampleRate: 100,
+            sessionReplaySampleRate: 100,
+            defaultPrivacyLevel: 'mask-user-input',
+          });
+        })
+      </script>
 </head>
 <body>
     <div class="container">
         <main>
             <div class="content-wrapper">
+                <div class="pony-club-section">
+                    <div class="pony-club-container">
+                        <img src="PinkPonyClub.png" alt="Pink Pony Club" class="pony-club-image">
+                        <h2 class="pony-club-title">Welcome to the Club</h2>
+                    </div>
+                </div>
+                
                 <div class="ascii-art-container">
-                    <div class="holes holes-left">
-                        <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
+                    <div class="paper-content">
+                        <div class="paper-image-group" id="main-image-group">
+                            <div class="holes holes-left">
+                                <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
+                            </div>
+                            <div class="holes holes-right">
+                                <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
+                            </div>
+                            <img src="ascii-art.png" alt="ASCII Art" class="ascii-art" id="main-ascii-art">
+                        </div>
+                        <div class="paper-image-group" id="repeat-image-group-1">
+                            <div class="holes holes-left">
+                                <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
+                            </div>
+                            <div class="holes holes-right">
+                                <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
+                            </div>
+                            <img src="ascii-art.png" alt="ASCII Art" class="ascii-art" id="repeat-ascii-art-1">
+                        </div>
+                        <div class="paper-image-group" id="repeat-image-group-2">
+                            <div class="holes holes-left">
+                                <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
+                            </div>
+                            <div class="holes holes-right">
+                                <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
+                            </div>
+                            <img src="ascii-art.png" alt="ASCII Art" class="ascii-art" id="repeat-ascii-art-2">
+                        </div>
+                        <div class="paper-image-group" id="repeat-image-group-3">
+                            <div class="holes holes-left">
+                                <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
+                            </div>
+                            <div class="holes holes-right">
+                                <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
+                            </div>
+                            <img src="ascii-art.png" alt="ASCII Art" class="ascii-art" id="repeat-ascii-art-3">
+                        </div>
+                        <div class="paper-image-group" id="repeat-image-group-4">
+                            <div class="holes holes-left">
+                                <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
+                            </div>
+                            <div class="holes holes-right">
+                                <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
+                            </div>
+                            <img src="ascii-art.png" alt="ASCII Art" class="ascii-art" id="repeat-ascii-art-4">
+                        </div>
+                        <div class="paper-image-group" id="repeat-image-group-5">
+                            <div class="holes holes-left">
+                                <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
+                            </div>
+                            <div class="holes holes-right">
+                                <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
+                            </div>
+                            <img src="ascii-art.png" alt="ASCII Art" class="ascii-art" id="repeat-ascii-art-5">
+                        </div>
+                        <div class="paper-image-group" id="repeat-image-group-6">
+                            <div class="holes holes-left">
+                                <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
+                            </div>
+                            <div class="holes holes-right">
+                                <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
+                            </div>
+                            <img src="ascii-art.png" alt="ASCII Art" class="ascii-art" id="repeat-ascii-art-6">
+                        </div>
+                        <div class="paper-image-group" id="repeat-image-group-7">
+                            <div class="holes holes-left">
+                                <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
+                            </div>
+                            <div class="holes holes-right">
+                                <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
+                            </div>
+                            <img src="ascii-art.png" alt="ASCII Art" class="ascii-art" id="repeat-ascii-art-7">
+                        </div>
+                        <div class="paper-image-group" id="repeat-image-group-8">
+                            <div class="holes holes-left">
+                                <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
+                            </div>
+                            <div class="holes holes-right">
+                                <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
+                            </div>
+                            <img src="ascii-art.png" alt="ASCII Art" class="ascii-art" id="repeat-ascii-art-8">
+                        </div>
+                        <div class="paper-text-section">
+                            <div class="holes holes-left">
+                                <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
+                            </div>
+                            <div class="holes holes-right">
+                                <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
+                            </div>
+                            <div class="dot-matrix-text">
+                                <p>Brought to you w/ &lt;3 from j:hand @ Datadog</p>
+                                <p>=====================================</p>
+                                <p>* Some of our favorite "Chit chat" *</p>
+                                <p>=====================================</p>
+                                <p>Thank you for printing with us!</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="holes holes-right">
-                        <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
-                    </div>
-                    <img src="ascii-art.png" alt="ASCII Art" class="ascii-art">
+                    <a href="https://app.datadoghq.com" target="_blank" class="datadog-link">Try Datadog</a>
                 </div>
                 
                 <div class="quote-section">
-                    <blockquote id="quote-text">
-                        <!-- Quote will be loaded here -->
-                    </blockquote>
-                    <button id="new-quote-btn" class="quote-button">New Quote</button>
+                    <div class="quote-bg">
+                        <blockquote id="quote-text">
+                            <!-- Quote will be loaded here -->
+                        </blockquote>
+                    </div>
                 </div>
             </div>
         </main>
@@ -33,7 +156,17 @@
         </footer>
     </div>
     
-    <div class="printer-base"></div>
+    <div class="printer-base">
+        <button id="new-quote-btn" class="printer-button">
+            <span class="button-label">PRINT</span>
+            <span class="button-icon">▶</span>
+        </button>
+        <div class="printer-controls">
+            <div class="control-light red"></div>
+            <div class="control-light green"></div>
+            <div class="control-light yellow"></div>
+        </div>
+    </div>
     
     <script src="script.js"></script>
 </body>
