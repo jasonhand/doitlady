@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Do it lady!
+=======
+# The internet's favorite new sketch comedy character Chit
+>>>>>>> aad2716bda5f2cd4aa224248390ee2e1bbfc502d
 
 This is a playful web app that emulates a classic dot-matrix printer experience, complete with animated paper feed, punch holes, and retro ASCII-art images. Each time you click the button, the paper scrolls up as if printing a new line, and a random motivational quote from "Chit" appears to the right.
 
